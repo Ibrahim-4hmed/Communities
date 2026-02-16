@@ -9,6 +9,7 @@ import { GoGlobe } from "react-icons/go";
 import { LuGraduationCap } from "react-icons/lu";
 import { LuExternalLink } from "react-icons/lu";
 import { LuMessageCircle } from "react-icons/lu";
+import { allArticles } from "../data/articles";
 // import { LuChevronDown } from "react-icons/lu";
 
 
@@ -126,7 +127,7 @@ const PathwayDetail = () => {
           </div>
         </section>
 
-        {/* Articles - Accordion */}
+        {/* Articles */}
         <section className="animate-fade-up" style={{ animationDelay: "200ms" }}>
           <div className="mb-8 flex items-center gap-3">
             <div className="rounded-xl bg-primary/10 p-3">
@@ -137,23 +138,25 @@ const PathwayDetail = () => {
             </h2>
           </div>
 
-          <section className="space-y-3">
-            {pathway.articles.map((article, i) => (
-              <div
+          <div className="space-y-3">
+            {allArticles.filter(a => a.pathwayId === id).map((article, i) => (
+              <Link
                 key={i}
-                // value={`article-${i}`}
-                className="overflow-hidden rounded-xl border border-border bg-card px-5 shadow-sm transition-all data-[state=open]:shadow-card data-[state=open]:border-primary/30"
+                to={`/articles?id=${article.id}`}
+                className="group flex items-center justify-between rounded-xl border border-border bg-card px-5 py-4 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-card"
               >
-                <div className="font-heading text-base font-semibold text-foreground hover:no-underline py-5">
-                  {article.title}
+                <div>
+                  <h3 className="font-heading text-base font-semibold text-foreground">
+                    {article.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{article.summary}</p>
                 </div>
-                <div className="text-sm leading-relaxed text-muted-foreground pb-5">
-                  {article.summary}
-                </div>
-              </div>
+                <GoArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary rotate-180" />
+              </Link>
             ))}
-          </section>
+          </div>
         </section>
+
 
         {/* WhatsApp CTA */}
         <section className="animate-fade-up" style={{ animationDelay: "400ms" }}>

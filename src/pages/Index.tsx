@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import heroBg from "../assets/hero-bg.jpg";
 import PathwayCard from "../components/PathwayCard";
 import Navbar from "../components/Navbar";
-import { pathways, popularArticles } from "../data/pathways";
+import { pathways } from "../data/pathways";
 import { IoSparklesOutline } from "react-icons/io5";
-import { FiBookOpen } from "react-icons/fi";
+import { LuBookOpen } from "react-icons/lu";
+import { GoArrowLeft } from "react-icons/go";
 import { FaHandHoldingHeart } from "react-icons/fa";
+import { allArticles,categoryBadgeColors } from "../data/articles";
 // import { FiArrowLeft } from "react-icons/fi";
 // import { Badge } from "../components/ui/badge";
 
@@ -77,7 +80,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              <FiBookOpen className="h-4 w-4" />
+              <LuBookOpen className="h-4 w-4" />
               <span>مقالات مختارة</span>
             </div>
             <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
@@ -89,27 +92,40 @@ const Index = () => {
           </div>
 
           <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {popularArticles.map((article, i) => (
-              <article
-                key={i}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-l from-primary to-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="mb-3 text-xs border border-primary/20 bg-primary/10 inline-block px-2 py-1 font-medium text-primary rounded-full">
-                  {article.category}
-                </div>
-                <h3 className="mb-2 font-heading text-lg font-bold text-foreground leading-snug">
-                  {article.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {article.summary}
-                </p>
-              </article>
-            ))}
+            {allArticles.filter(a => !a.pathwayId).slice(0, 6).map((article, i) => {
+              const badgeColor = categoryBadgeColors[article.category] || "bg-muted text-muted-foreground";
+              const gradient = article.categoryColor || "from-primary to-accent";
+              return (
+                <Link
+                  key={article.id}
+                  to={`/articles?id=${article.id}`}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  <div className={`h-1.5 bg-gradient-to-l ${gradient}`} />
+                  <div className="p-6">
+                    <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${badgeColor} mb-3`}>
+                      {article.category}
+                    </span>
+                    <h3 className="mb-2 font-heading text-lg font-bold text-foreground leading-snug">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {article.summary}
+                    </p>
+                    <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+                      <span>اقرأ المزيد</span>
+                      <GoArrowLeft className="h-3.5 w-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
+
+
 
       {/* Footer */}
       <footer className="border-t border-border bg-card py-10 text-center">

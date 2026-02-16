@@ -14,12 +14,21 @@ const Navbar = () => {
           </span>
         </Link>
 
+        <div className="flex items-center gap-4">
         <Link
           to="/"
           className="text-xl font-bold text-muted-foreground transition-colors hover:text-primary"
         >
           الرئيسية
         </Link>
+
+        <Link
+            to="/articles"
+            className="text-xl font-bold text-muted-foreground transition-colors hover:text-primary"
+          >
+            المقالات
+          </Link>
+          </div>
       </div>
     </nav>
   );
