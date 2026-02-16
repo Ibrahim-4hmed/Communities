@@ -20,7 +20,7 @@ const PathwayCard = ({ pathway, index }: PathwayCardProps) => {
         {/* Top accent line */}
         <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-l ${pathway.color} opacity-60 transition-opacity duration-300 group-hover:opacity-100`} />
         
-        {/* <div className={`absolute inset-0 bg-gradient-to-br ${pathway.color} opacity-0 transition-opacity duration-300 group-hover:opacity-[0.03]`} /> */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${pathway.color} opacity-0 transition-opacity duration-300 group-hover:opacity-[0.03]`} />
         
         <div className={`mb-5 inline-flex items-center justify-center rounded-2xl bg-gradient-to-br ${pathway.color} p-4 shadow-sm`}>
           <Icon className="h-8 w-8 text-primary-foreground" />

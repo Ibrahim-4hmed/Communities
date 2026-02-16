@@ -38,7 +38,7 @@ const Index = () => {
 
             <h1 className="mb-5 font-heading text-4xl font-extrabold leading-tight text-primary-foreground">
               مرحبا بك في مجتمع البرمجة لطلاب جامعة السودان الجدد! <br />
-              <span className="bg-gradient-to-l from-sky to-calm-blue-light bg-clip-text text-transparent">
+              <span className="bg-gradient-to-l from-sky to-calm-blue-light bg-clip-text">
                 رحلتك البرمجية تبدأ من هنا
               </span>
             </h1>
@@ -130,7 +130,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card py-10 text-center">
         <p className="text-xl text-muted-foreground flex items-center justify-center gap-2">
-          صُمم بـ<span><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
+          صُمم بـ<span className={`text-red-500`}><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
         </p>
       </footer>
     </div>

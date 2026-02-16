@@ -31,7 +31,7 @@ const Articles = () => {
         <Navbar />
 
         {/* Article Header */}
-        <section className={`relative overflow-hidden bg-gradient-to-br ${gradientColor} py-20`}>
+        <section className={`relative overflow-hidden bg-gradient-to-br ${gradientColor} pt-8 pb-20`}>
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute inset-0"
@@ -42,10 +42,10 @@ const Articles = () => {
             />
           </div>
 
-          <div className="relative container mx-auto px-4">
+          <div className="relative container mx-auto px-4 md:px-32">
             <Link
               to="/articles"
-              className="mb-8 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground/80 backdrop-blur-sm transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
+              className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground/80 backdrop-blur-sm transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
             >
               <GoArrowRight className="h-4 w-4" />
               <span>العودة للمقالات</span>
@@ -175,7 +175,7 @@ const Articles = () => {
          {/* Footer */}
               <footer className="border-t border-border bg-card py-10 text-center">
                 <p className="text-xl text-muted-foreground flex items-center justify-center gap-2">
-                  صُمم بـ<span><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
+                  صُمم بـ<span className="text-red-500 "><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
                 </p>
               </footer>
       </div>
@@ -184,7 +184,7 @@ const Articles = () => {
 
   // Articles listing page
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background ">
       <Navbar />
 
       {/* Header */}
@@ -239,7 +239,7 @@ const Articles = () => {
       </div>
 
       {/* Articles Grid */}
-      <section className="container mx-auto px-4 pb-20">
+      <section className="container mx-auto px-4 pb-20 ">
         <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredArticles.map((article, i) => {
             const badgeColor = categoryBadgeColors[article.category] || "bg-muted text-muted-foreground";
@@ -277,7 +277,7 @@ const Articles = () => {
 
       <footer className="border-t border-border bg-card py-10 text-center">
         <p className="text-xl text-muted-foreground flex items-center justify-center gap-2">
-          صُمم بـ<span><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
+          صُمم بـ<span className={`text-red-500`}><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
         </p>
       </footer>
     </div>

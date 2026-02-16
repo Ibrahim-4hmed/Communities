@@ -104,7 +104,7 @@ const PathwayDetail = () => {
             {pathway.roadmap.sections.map((section, si) => (
               <div key={si}>
                 <h3 className="mb-4 flex items-center gap-2 font-heading text-lg font-semibold text-foreground">
-                  <span className="inline-flex h-8 w-8 items-center justify-center border border-primary/20 rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-primary-foreground">
+                  <span className={`bg-${pathway.color} inline-flex h-8 w-8 items-center justify-center border border-primary/20 rounded-lg bg-gradient-to-br from-primary to-accent text-sm font-bold text-primary-foreground`}>
                     {si + 1}
                   </span>
                   {section.title}
@@ -160,7 +160,7 @@ const PathwayDetail = () => {
 
         {/* WhatsApp CTA */}
         <section className="animate-fade-up" style={{ animationDelay: "400ms" }}>
-          <div className="overflow-hidden rounded-2xl gradient-hero p-10 text-center shadow-lg relative">
+          <div className={`overflow-hidden rounded-2xl gradient-hero p-10 text-center shadow-lg relative`}>
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%)" }} />
             <div className="relative">
               <LuMessageCircle className="mx-auto mb-4 h-12 w-12 text-primary-foreground" />
@@ -224,7 +224,7 @@ const PathwayDetail = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card py-10 text-center">
         <p className="text-xl text-muted-foreground flex items-center justify-center gap-2">
-          صُمم بـ<span><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
+          صُمم بـ<span className={`text-red-500`}><FaHandHoldingHeart /></span> لطلاب الجامعة الجدد
         </p>
       </footer>
     </div>
