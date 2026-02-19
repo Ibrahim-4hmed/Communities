@@ -95,7 +95,7 @@ const Index = () => {
               const badgeColor = categoryBadgeColors[article.category] || "bg-muted text-muted-foreground";
               const gradient = article.categoryColor || "from-primary to-accent";
               return (
-                <ArticleCard badgeColor={badgeColor} gradient={gradient} i={i} article={article} />
+                <ArticleCard key={article.id} badgeColor={badgeColor} gradient={gradient} i={i} article={article} />
               );
             })}
           </div>

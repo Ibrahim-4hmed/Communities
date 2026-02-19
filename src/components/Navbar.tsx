@@ -18,14 +18,14 @@ const Navbar = () => {
 
         <Link
             to="/articles"
-            className="text-xl font-bold text-muted-foreground transition-colors hover:text-primary"
+            className="md:text-xl text-md font-bold text-muted-foreground transition-colors hover:text-primary"
           >
             المقالات
           </Link>
 
           <Link
           to="/"
-          className="text-xl font-bold text-muted-foreground transition-colors hover:text-primary"
+          className="md:text-xl text-md font-bold text-muted-foreground transition-colors hover:text-primary"
         >
           الرئيسية
         </Link>

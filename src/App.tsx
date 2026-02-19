@@ -3,10 +3,12 @@ import Index from "./pages/Index";
 import PathwayDetail from "./pages/PathwayDetail";
 import NotFound from "./pages/NotFound";
 import Articles from "./pages/Articles";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 
 const App = () => (
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/pathway/:id" element={<PathwayDetail />} />
