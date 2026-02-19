@@ -3,11 +3,10 @@ import { useSearchParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { allArticles, categoryBadgeColors } from "../data/articles"; //categoryColors
 import { LuBookOpen } from "react-icons/lu";
-import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
 import { FiClock } from "react-icons/fi";
 import { FaHandHoldingHeart } from "react-icons/fa";
-// import { IoPricetagOutline } from "react-icons/io5";
+import ArticleCard from "../components/ArticleCard";
 
 
 const categories = ["الكل", ...Array.from(new Set(allArticles.map((a) => a.category)))];
@@ -16,14 +15,15 @@ const Articles = () => {
   const [searchParams] = useSearchParams();
   const articleId = searchParams.get("id");
   const [activeCategory, setActiveCategory] = useState("الكل");
-
-  const selectedArticle = articleId ? allArticles.find((a) => a.id === articleId) : null;
-
+  
+  const selectedArticle = articleId ? allArticles.find((a) => a.id === articleId) : null
+  
   const filteredArticles =
     activeCategory === "الكل"
       ? allArticles
       : allArticles.filter((a) => a.category === activeCategory);
 
+  // One Article Content
   if (selectedArticle) {
     const gradientColor = selectedArticle.categoryColor || "from-primary to-accent";
     return (
@@ -72,6 +72,7 @@ const Articles = () => {
             </div>
           </div>
 
+          {/* Wave */}
           <div className="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
               <path d="M0 50L1440 50L1440 25C1440 25 1200 0 720 0C240 0 0 25 0 25L0 50Z" fill="hsl(var(--background))" />
@@ -83,7 +84,7 @@ const Articles = () => {
         <article className="container mx-auto max-w-3xl px-4 py-14">
           <div className="prose-article">
             {selectedArticle.content.split("\n\n").map((paragraph, i) => {
-              if (paragraph.startsWith("## ")) {
+              if (paragraph.startsWith("## ")) { // ## Means this is title
                 return (
                   <h2
                     key={i}
@@ -93,7 +94,7 @@ const Articles = () => {
                   </h2>
                 );
               }
-              if (paragraph.startsWith("### ")) {
+              if (paragraph.startsWith("### ")) { // ## Means this is subtitle
                 return (
                   <h3
                     key={i}
@@ -212,6 +213,8 @@ const Articles = () => {
             </p>
           </div>
         </div>
+        
+        {/* Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
             <path d="M0 50L1440 50L1440 25C1440 25 1200 0 720 0C240 0 0 25 0 25L0 50Z" fill="hsl(var(--background))" />
@@ -245,31 +248,7 @@ const Articles = () => {
             const badgeColor = categoryBadgeColors[article.category] || "bg-muted text-muted-foreground";
             const gradient = article.categoryColor || "from-primary to-accent";
             return (
-              <Link
-                key={article.id}
-                to={`/articles?id=${article.id}`}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
-                style={{ animationDelay: `${i * 50}ms` }}
-              >
-                {/* Color bar */}
-                <div className={`h-1.5 bg-gradient-to-l ${gradient}`} />
-
-                <div className="p-6">
-                  <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${badgeColor} mb-3`}>
-                    {article.category}
-                  </span>
-                  <h3 className="mb-2 font-heading text-lg font-bold text-foreground leading-snug line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                    {article.summary}
-                  </p>
-                  <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
-                    <span>اقرأ المقال</span>
-                    <GoArrowLeft className="h-3.5 w-3.5" />
-                  </div>
-                </div>
-              </Link>
+              <ArticleCard badgeColor={badgeColor} gradient={gradient} i={i} article={article} />
             );
           })}
         </div>

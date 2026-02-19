@@ -10,7 +10,6 @@ import { LuGraduationCap } from "react-icons/lu";
 import { LuExternalLink } from "react-icons/lu";
 import { LuMessageCircle } from "react-icons/lu";
 import { allArticles } from "../data/articles";
-// import { LuChevronDown } from "react-icons/lu";
 
 
 const PathwayDetail = () => {

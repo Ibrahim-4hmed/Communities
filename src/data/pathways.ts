@@ -24,47 +24,9 @@ export interface PathwayData {
     title: string;
     sections: RoadmapSection[];
   };
-  articles: {
-    title: string;
-    summary: string;
-  }[];
   whatsappLink: string;
   resources: Resource[];
 }
-
-export const popularArticles = [
-  {
-    title: "كيف تبدأ رحلتك في البرمجة من الصفر",
-    summary: "دليل شامل للمبتدئين يشرح الخطوات الأولى لدخول عالم البرمجة واختيار اللغة المناسبة.",
-    category: "عام",
-  },
-  {
-    title: "أهم 10 مهارات يحتاجها كل مبرمج",
-    summary: "تعرّف على المهارات التقنية والشخصية التي تميز المبرمج الناجح في سوق العمل.",
-    category: "مهارات",
-  },
-  {
-    title: "الفرق بين لغات البرمجة: أيها تختار؟",
-    summary: "مقارنة بين أشهر لغات البرمجة مع نصائح لاختيار اللغة المناسبة لأهدافك.",
-    category: "لغات البرمجة",
-  },
-  {
-    title: "بناء مشروعك الأول: من الفكرة إلى التنفيذ",
-    summary: "خطوات عملية لتحويل فكرتك البرمجية إلى مشروع حقيقي يمكنك عرضه.",
-    category: "مشاريع",
-  },
-  {
-    title: "كيف تستعد لمقابلات العمل التقنية",
-    summary: "نصائح واستراتيجيات فعالة للتحضير لمقابلات شركات التقنية الكبرى.",
-    category: "وظائف",
-  },
-  {
-    title: "مصادر تعلم البرمجة المجانية بالعربي",
-    summary: "قائمة محدثة بأفضل المنصات والقنوات العربية لتعلم البرمجة مجاناً.",
-    category: "مصادر",
-  },
-];
-
 export const pathways: PathwayData[] = [
   {
     id: "cybersecurity",
@@ -107,20 +69,6 @@ export const pathways: PathwayData[] = [
         },
       ],
     },
-    articles: [
-      {
-        title: "ما هو الأمن السيبراني؟",
-        summary: "مقدمة شاملة عن مفهوم الأمن السيبراني وأهميته في عصرنا الرقمي، وكيف يمكنك البدء في هذا المجال المطلوب عالمياً.",
-      },
-      {
-        title: "أنواع الهجمات الإلكترونية",
-        summary: "تعرّف على أشهر أنواع الهجمات مثل التصيد الاحتيالي وهجمات الفدية وكيفية الحماية منها.",
-      },
-      {
-        title: "مستقبل الأمن السيبراني",
-        summary: "نظرة على سوق العمل والفرص الوظيفية المتاحة في مجال الأمن السيبراني محلياً وعالمياً.",
-      },
-    ],
     whatsappLink: "#",
     resources: [
       { title: "NetworkChuck - شبكات وأمن سيبراني", url: "https://youtube.com/@NetworkChuck", type: "youtube" },
@@ -168,20 +116,6 @@ export const pathways: PathwayData[] = [
         },
       ],
     },
-    articles: [
-      {
-        title: "دليل المبتدئين في تطوير الويب",
-        summary: "كل ما تحتاج معرفته للبدء في رحلة تطوير الويب من الصفر حتى الاحتراف.",
-      },
-      {
-        title: "الفرق بين Frontend و Backend",
-        summary: "فهم الفرق بين تطوير الواجهات الأمامية والخلفية ومتى تختار كل منهما.",
-      },
-      {
-        title: "أفضل المصادر لتعلم البرمجة بالعربي",
-        summary: "قائمة بأفضل المنصات والقنوات العربية لتعلم تطوير الويب مجاناً.",
-      },
-    ],
     whatsappLink: "#",
     resources: [
       { title: "Traversy Media - دورات ويب شاملة", url: "https://youtube.com/@TraversyMedia", type: "youtube" },
@@ -221,20 +155,6 @@ export const pathways: PathwayData[] = [
         },
       ],
     },
-    articles: [
-      {
-        title: "لماذا حل المشكلات مهم للمبرمج؟",
-        summary: "كيف يساعدك التفكير الخوارزمي في حياتك المهنية وفي اجتياز مقابلات العمل في الشركات الكبرى.",
-      },
-      {
-        title: "أفضل منصات التدريب البرمجي",
-        summary: "مقارنة بين أشهر المنصات مثل LeetCode و Codeforces و HackerRank.",
-      },
-      {
-        title: "كيف تستعد لمسابقات البرمجة",
-        summary: "نصائح عملية وخطة تدريب للاستعداد للمسابقات البرمجية الجامعية.",
-      },
-    ],
     whatsappLink: "#",
     resources: [
       { title: "Errichto - خوارزميات متقدمة", url: "https://youtube.com/@Errichto", type: "youtube" },
@@ -283,20 +203,6 @@ export const pathways: PathwayData[] = [
         },
       ],
     },
-    articles: [
-      {
-        title: "مقدمة في الذكاء الاصطناعي",
-        summary: "ما هو الذكاء الاصطناعي وما الفرق بينه وبين تعلم الآلة والتعلم العميق؟",
-      },
-      {
-        title: "تطبيقات الذكاء الاصطناعي في حياتنا",
-        summary: "أمثلة واقعية على كيفية استخدام الذكاء الاصطناعي في مختلف المجالات.",
-      },
-      {
-        title: "كيف تبدأ رحلتك في AI",
-        summary: "خطة عملية ومصادر مجانية للبدء في تعلم الذكاء الاصطناعي من الصفر.",
-      },
-    ],
     whatsappLink: "#",
     resources: [
       { title: "3Blue1Brown - شرح الشبكات العصبية", url: "https://youtube.com/@3blue1brown", type: "youtube" },
