@@ -7,6 +7,7 @@ import { LuBookOpen } from "react-icons/lu";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { allArticles,categoryBadgeColors } from "../data/articles";
 import ArticleCard from "../components/ArticleCard";
+import { Link } from "react-router-dom";
 // import { FiArrowLeft } from "react-icons/fi";
 // import { Badge } from "../components/ui/badge";
 
@@ -99,6 +100,12 @@ const Index = () => {
               );
             })}
           </div>
+
+          <Link to="/articles"
+            className="text-muted-foreground text-xl mt-16 border w-fit mx-auto py-2 px-4 block rounded-2xl border border-border transition-all duration-300 hover:-translate-y-1 hover:text-red-600"
+            >
+             تصفح جميع المقالات
+          </Link>
         </div>
       </section>
 
