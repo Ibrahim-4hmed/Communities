@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import type { Article } from "../data/articles";
 
@@ -12,9 +12,10 @@ interface ArticleCardProps {
 
 const ArticleCard = ({badgeColor,gradient,i,article} : ArticleCardProps) =>  {
   return (
-    <Link
+    <a 
       key={article.id}
-      to={`/articles?id=${article.id}`}
+      target="_blank"
+      href={article.url}
       className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
       style={{ animationDelay: `${i * 100}ms` }}
     >
@@ -34,7 +35,7 @@ const ArticleCard = ({badgeColor,gradient,i,article} : ArticleCardProps) =>  {
           <GoArrowLeft className="h-3.5 w-3.5" />
         </div>
       </div>
-    </Link>
+    </a>
   )
 }
 
